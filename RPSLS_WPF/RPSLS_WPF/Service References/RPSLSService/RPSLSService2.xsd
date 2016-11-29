@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RPSLS_WCF" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RPSLS_WCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="Symbol">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ROCK" />
+      <xs:enumeration value="PAPER" />
+      <xs:enumeration value="SCISSORS" />
+      <xs:enumeration value="LIZARD" />
+      <xs:enumeration value="SPOCK" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Symbol" nillable="true" type="tns:Symbol" />
+  <xs:complexType name="Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComputerSymbol" type="tns:Symbol" />
+      <xs:element minOccurs="0" name="GameTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserSymbol" type="tns:Symbol" />
+      <xs:element minOccurs="0" name="Winner" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Result" nillable="true" type="tns:Result" />
+</xs:schema>

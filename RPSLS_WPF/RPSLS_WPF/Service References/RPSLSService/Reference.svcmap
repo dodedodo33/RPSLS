@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ee36a808-c414-42ee-8efb-2ca5387dee14" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://dj33rpsls.azurewebsites.net/RPSLSService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RPSLSService.wsdl" MetadataType="Wsdl" ID="69c62c7b-29ca-4967-99cd-e1bb03d19c9e" SourceId="1" SourceUrl="http://dj33rpsls.azurewebsites.net/RPSLSService.svc?wsdl" />
+    <MetadataFile FileName="RPSLSService.disco" MetadataType="Disco" ID="06428025-bbdf-4927-80d6-ce43c7deb96e" SourceId="1" SourceUrl="http://dj33rpsls.azurewebsites.net/RPSLSService.svc?disco" />
+    <MetadataFile FileName="RPSLSService.xsd" MetadataType="Schema" ID="d3a04e58-6613-48c3-a32e-8ea447f74a50" SourceId="1" SourceUrl="http://dj33rpsls.azurewebsites.net/RPSLSService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RPSLSService1.xsd" MetadataType="Schema" ID="49d4e954-4a6c-43f5-bc35-904b85e3cb82" SourceId="1" SourceUrl="http://dj33rpsls.azurewebsites.net/RPSLSService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RPSLSService2.xsd" MetadataType="Schema" ID="8134ed6a-36e8-42e4-8738-b8a948cb0b78" SourceId="1" SourceUrl="http://dj33rpsls.azurewebsites.net/RPSLSService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
