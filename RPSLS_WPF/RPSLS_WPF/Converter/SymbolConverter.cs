@@ -40,7 +40,28 @@ namespace RPSLS_WPF.Converter {
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            var text = value as string;
+            Symbol s;
+            switch (text)
+            {
+                case "rock":
+                    s = Symbol.ROCK;
+                    break;
+                case "paper":
+                    s = Symbol.PAPER;
+                    break;
+                case "scissors":
+                    s = Symbol.SCISSORS;
+                    break;
+                case "lizard":
+                    s = Symbol.LIZARD;
+                    break;
+                case "spock":
+                    s = Symbol.SPOCK;
+                    break;
+                default: throw new InvalidEnumArgumentException();
+            }
+            return s;
         }
     }
 }

@@ -13,7 +13,8 @@ namespace RPSLS_WPF.Converter
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var dt = (DateTime)value;
-            return dt.ToShortTimeString();
+            CultureInfo dutch = new CultureInfo("nl-NL", false);
+            return dt.ToString(dutch);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

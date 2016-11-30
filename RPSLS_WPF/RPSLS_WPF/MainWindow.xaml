@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPSLS_WPF"
         xmlns:cv="clr-namespace:RPSLS_WPF.Converter"
+        xmlns:sv="clr-namespace:RPSLS_WPF.RPSLSService"
         mc:Ignorable="d"
         Title="Rock Paper Scissors Lizard Spock" Height="350" Width="525"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
@@ -44,7 +45,8 @@
                 <Label Grid.Row="0" Grid.Column="3"
                        Content="{Binding Result.ComputerSymbol, Converter={StaticResource SymbolConverter}}" />
                 <Label Grid.Row="1" Grid.Column="0" Content="Played at:" />
-                <Label Grid.Row="1" Grid.Column="1" Content="{Binding Result.GameTime, Converter={StaticResource TimeConverter}}" />
+                <Label Grid.Row="1" Grid.Column="1"
+                       Content="{Binding Result.GameTime, Converter={StaticResource TimeConverter}}" />
                 <Label Grid.Row="1" Grid.Column="2" Content="Winner:" />
                 <Label Grid.Row="1" Grid.Column="3" Content="{Binding Result.Winner}" />
             </Grid>
@@ -54,19 +56,23 @@
                      Width="200" />
             <Button x:Name="RockButton" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center"
                     VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Rock"
-                    Command="{Binding RPSLSCommand}" CommandParameter="rock" />
+                    Command="{Binding RPSLSCommand}"
+                    CommandParameter="{x:Static sv:Symbol.ROCK}" />
             <Button x:Name="PaperButton" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center"
                     VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Paper"
-                    Command="{Binding RPSLSCommand}" CommandParameter="paper" />
+                    Command="{Binding RPSLSCommand}"
+                    CommandParameter="{x:Static sv:Symbol.PAPER}" />
             <Button x:Name="ScissorButton" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center"
                     VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Scissors"
-                    Command="{Binding RPSLSCommand}" CommandParameter="scissors" />
+                    Command="{Binding RPSLSCommand}"
+                    CommandParameter="{x:Static sv:Symbol.SCISSORS}" />
             <Button x:Name="LizardButton" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center"
                     VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Lizard"
-                    Command="{Binding RPSLSCommand}" CommandParameter="lizard" />
+                    Command="{Binding RPSLSCommand}"
+                    CommandParameter="{x:Static sv:Symbol.LIZARD}" />
             <Button x:Name="Spock" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"
                     Height="Auto" Width="Auto" Content="Spock" Command="{Binding RPSLSCommand}"
-                    CommandParameter="spock" />
+                    CommandParameter="{x:Static sv:Symbol.SPOCK}" />
         </Grid>
     </Border>
 </Window>

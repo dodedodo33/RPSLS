@@ -39,38 +39,17 @@ namespace RPSLS_WPF.ViewModel
         {
             _service = new RPSLSServiceClient();
             _active = false;
-            RPSLSCommand = new RelayCommand<string>(SendSymbol, CanSendSymbol);
+            RPSLSCommand = new RelayCommand<Symbol>(SendSymbol, CanSendSymbol);
         }
 
-        public void SendSymbol(string symbol)
+        public void SendSymbol(Symbol symbol)
         {
             _active = true;
-            var text = symbol;
-            Symbol s;
-            switch (text)
-            {
-                case "rock":
-                    s = Symbol.ROCK;
-                    break;
-                case "paper":
-                    s = Symbol.PAPER;
-                    break;
-                case "scissors":
-                    s = Symbol.SCISSORS;
-                    break;
-                case "lizard":
-                    s = Symbol.LIZARD;
-                    break;
-                case "spock":
-                    s = Symbol.SPOCK;
-                    break;
-                default: throw new InvalidEnumArgumentException();
-            }
-            Result = _service.SendMove(_username, s);
+            Result = _service.SendMove(_username, symbol);
             _active = false;
         }
 
-        public bool CanSendSymbol(string symbol)
+        public bool CanSendSymbol(Symbol symbol)
         {
             return !_active && !string.IsNullOrEmpty(_username);
         }
