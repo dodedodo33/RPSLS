@@ -29,15 +29,15 @@ namespace RPSLS_WCF
         {
             var values = (Symbol[])Enum.GetValues(typeof(Symbol));
             var computerSymbol = values[new Random().Next(0, values.Length)];
-            var winner = "draw";
+            var winner = "Draw";
             if (_beats[symbol].Contains(computerSymbol))
             {
                 winner = name;
             } else if (_beats[computerSymbol].Contains(symbol))
             {
-                winner = "computer";
+                winner = "Computer";
             }
-            return new Result() {UserSymbol = symbol, ComputerSymbol = computerSymbol, Winner = winner, GameTime = new DateTime()};
+            return new Result() {UserSymbol = symbol, ComputerSymbol = computerSymbol, Winner = winner, GameTime = DateTime.Now};
         }
     }
 }

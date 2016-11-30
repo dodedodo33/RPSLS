@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPSLS_WPF"
+        xmlns:cv="clr-namespace:RPSLS_WPF.Converter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Rock Paper Scissors Lizard Spock" Height="350" Width="525"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <Window.Resources>
+        <cv:SymbolConverter x:Key="SymbolConverter" />
+        <cv:TimeConverter x:Key="TimeConverter" />
+    </Window.Resources>
     <Border BorderBrush="LightSteelBlue" BorderThickness="10">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -20,18 +26,47 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Label Grid.Column="1" Grid.Row="1" Content="Name:" Height="30" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center" Text="test" Height="30" Width="200"/>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Played:" />
+                <Label Grid.Row="0" Grid.Column="1"
+                       Content="{Binding Result.UserSymbol, Converter={StaticResource SymbolConverter}}" />
+                <Label Grid.Row="0" Grid.Column="2" Content="Computer Played:" />
+                <Label Grid.Row="0" Grid.Column="3"
+                       Content="{Binding Result.ComputerSymbol, Converter={StaticResource SymbolConverter}}" />
+                <Label Grid.Row="1" Grid.Column="0" Content="Played at:" />
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding Result.GameTime, Converter={StaticResource TimeConverter}}" />
+                <Label Grid.Row="1" Grid.Column="2" Content="Winner:" />
+                <Label Grid.Row="1" Grid.Column="3" Content="{Binding Result.Winner}" />
+            </Grid>
+            <Label Grid.Column="1" Grid.Row="1" Content="Name:" Height="30" HorizontalAlignment="Right" />
+            <TextBox Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center"
+                     Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30"
+                     Width="200" />
             <Button x:Name="RockButton" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center"
-                    VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Rock" />
+                    VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Rock"
+                    Command="{Binding RPSLSCommand}" CommandParameter="rock" />
             <Button x:Name="PaperButton" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center"
-                    VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Paper" />
+                    VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Paper"
+                    Command="{Binding RPSLSCommand}" CommandParameter="paper" />
             <Button x:Name="ScissorButton" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center"
-                    VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Scissors" />
+                    VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Scissors"
+                    Command="{Binding RPSLSCommand}" CommandParameter="scissors" />
             <Button x:Name="LizardButton" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center"
-                    VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Lizard" />
+                    VerticalAlignment="Center" Height="Auto" Width="Auto" Content="Lizard"
+                    Command="{Binding RPSLSCommand}" CommandParameter="lizard" />
             <Button x:Name="Spock" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Height="Auto" Width="Auto" Content="Spock" />
+                    Height="Auto" Width="Auto" Content="Spock" Command="{Binding RPSLSCommand}"
+                    CommandParameter="spock" />
         </Grid>
     </Border>
 </Window>
