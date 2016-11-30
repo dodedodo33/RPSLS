@@ -18,19 +18,19 @@ namespace RPSLS_WPF.Converter {
             switch (symbol)
             {
                 case Symbol.ROCK:
-                    txt = "rock";
+                    txt = "Rock";
                     break;
                 case Symbol.PAPER:
-                    txt = "paper";
+                    txt = "Paper";
                     break;
                 case Symbol.SCISSORS:
-                    txt = "scissors";
+                    txt = "Scissors";
                     break;
                 case Symbol.LIZARD:
-                    txt = "lizard";
+                    txt = "Lizard";
                     break;
                 case Symbol.SPOCK:
-                    txt = "spock";
+                    txt = "Spock";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
